@@ -206,9 +206,6 @@ Output:
 
 export function getCars(arr) {
     let cars = arr.filter(vehicle => vehicle.type === 'car');
-    for(let car of cars) {
-        delete car.age;
-    }
     return cars;
 }
 
@@ -222,9 +219,7 @@ Output:
 */
 
 export function getChevyCars(arr) {
-    let chevyCars = arr.filter(vehicle => vehicle.make === 'chevy'
-    && vehicle.type === 'car');
-
+    let chevyCars = arr.filter(vehicle => vehicle.make === 'chevy').filter(vehicle => vehicle.type === 'car');
     return chevyCars;
 }
 
@@ -242,7 +237,9 @@ Output:
  */
 
 export function makeModelsStringWithReduce(arr) {
-    return '';
+    return (arr.reduce((acc, curr) => {
+        return acc += curr.model;
+    }, ''));
 }
 
 /*
@@ -252,7 +249,9 @@ Output: 14
  */
 
 export function getSumOfAges(arr) {
-    return 0;
+    return (arr.reduce((acc, curr) => {
+        return acc += curr.age;
+    }, 0));
 }
 
 /*
@@ -266,7 +265,14 @@ Output:
  */
 
 export function makeCountObject(arr) {
-    return {};
+    return (arr.reduce((acc, curr) => {
+        acc[curr.type]++;
+        return acc;
+    }, {
+        car: 0,
+        truck: 0,
+        van: 0
+    }));
 }
 
 
@@ -279,5 +285,8 @@ Output:
 
 
 export function makeKeysString(arr) {
-    return '';
+    const keys = Object.keys(arr[0]);
+    return keys.reduce((acc, curr) => {
+        return acc += curr;
+    }, '');
 }
