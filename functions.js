@@ -205,7 +205,11 @@ Output:
 */
 
 export function getCars(arr) {
-    return [];
+    let cars = arr.filter(vehicle => vehicle.type === 'car');
+    for(let car of cars) {
+        delete car.age;
+    }
+    return cars;
 }
 
 /*
@@ -218,7 +222,10 @@ Output:
 */
 
 export function getChevyCars(arr) {
-    return [];
+    let chevyCars = arr.filter(vehicle => vehicle.make === 'chevy'
+    && vehicle.type === 'car');
+
+    return chevyCars;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

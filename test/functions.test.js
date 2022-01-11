@@ -142,7 +142,7 @@ const vehicles = [
     { type: 'car', make: 'chevy', model: 'camero', age: 1 },
 ];
 
-skip('should return an array of cars', (expect) => {
+test('should return an array of cars', (expect) => {
     const expected = [
         { type: 'car', make: 'ford', model: 'taurus' },
         { type: 'car', make: 'chevy', model: 'malibu' },
@@ -155,7 +155,7 @@ skip('should return an array of cars', (expect) => {
 });
 
 
-skip('should return an array of chevy cars', (expect) => {
+test('should return an array of chevy cars', (expect) => {
     const expected = [
         { type: 'car', make: 'chevy', model: 'malibu', age: 3 },
         { type: 'car', make: 'chevy', model: 'camero', age: 1 }
